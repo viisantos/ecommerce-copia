@@ -9,22 +9,23 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('product_groceries', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('name');
-            $table->integer('order');
-            $table->integer('table');
-            $table->integer('origin');
+            $table->integer('order')->nullable();
+            $table->integer('table')->nullable();
+            $table->integer('origin')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
     /**
      * Reverse the migrations.
      */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('product_groceries');
     }
