@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\MarketController;
+use App\Livewire\Product;
+use App\Models\Product as ModelsProduct;
 use Illuminate\Support\Facades\Route;
 
 
@@ -31,3 +33,7 @@ Route::middleware([
 });
 
 Route::get('/good_price', [MarketController::class, 'index'])->middleware('auth');
+//Route::get('/products', [ProductsController::class, 'products'])->middleware('auth');
+Route::get('/products', Product::class)->middleware('auth');
+
+
