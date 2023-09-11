@@ -19,7 +19,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/good_price', [MarketController::class, 'index']);
 
 Route::middleware([
     'auth:sanctum',
@@ -30,3 +29,5 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('/good_price', [MarketController::class, 'index'])->middleware('auth');
