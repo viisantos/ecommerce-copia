@@ -59,5 +59,10 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+    public function permissions()
+    {
+        return $this->hasOne(Permission::class);
+    }
+
    
 }

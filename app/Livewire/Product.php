@@ -7,10 +7,13 @@ use App\Models\User;
 
 class Product extends Component
 {
+    public $message = 'teste_inicial';
+
     public function render()
     {
+            
         $users = User::all();
-        
-        return view('livewire.product',compact('users'));
+
+        return view('livewire.product',compact('users','message'));
     }
 }
