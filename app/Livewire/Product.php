@@ -12,8 +12,9 @@ class Product extends Component
     public function render()
     {
     
-        //$users = User::all();
-        //$message = 'teste_inicial';
-        return view('livewire.product');
+        //$users = User::all(); 
+        return view('livewire.product',[
+            'message' => $this->message,
+        ]);
     }
 }
