@@ -2,8 +2,10 @@
 
 namespace App\Livewire;
 
+use Hash;
 use Livewire\Component;
 use App\Models\User;
+use Illuminate\Support\Facades;
 
 class Product extends Component
 {
@@ -13,21 +15,42 @@ class Product extends Component
     //criação de tarefas
     public $todos = [];
     public $todo;
-
+    public $user_name;
+    public $email;
+    public $password;
 
     public function increment(){
         $this->count++;
-    }
-
-    public function render()
-    {
-    
-        //$users = User::all(); 
-        return view('livewire.product');
     }
 
     public function add(){
         $this->todos[] = $this->todo;
         $this->todo = '';
     }
+
+    public function save()
+    {
+        $data = [
+            'name' => $this->user_name,
+            'email' => $this->email,
+            'password' => Hash::make($this->password)
+        ];
+
+        $user = new User();
+        $user->createUser($data);
+
+        //resolver isso 19-09-23!
+        //a mensagem não vai para o front end
+        return redirect()->to('/products')
+             ->with('status', 'User Created!');
+    }
+
+    public function render()
+    {
+
+        //$users = User::all();
+        return view('livewire.product');
+    }
+
+
 }

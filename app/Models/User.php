@@ -64,5 +64,9 @@ class User extends Authenticatable
         return $this->hasOne(Permission::class);
     }
 
-   
+    public function createUser($data){
+        $result = User::create($data);
+    }
+
+
 }
