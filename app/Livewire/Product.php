@@ -7,14 +7,27 @@ use App\Models\User;
 
 class Product extends Component
 {
-    public $message = 'teste_inicial';
+    public $some_text = 'teste_inicial';
+    public $count  = 0;
+
+    //criação de tarefas
+    public $todos = [];
+    public $todo;
+
+
+    public function increment(){
+        $this->count++;
+    }
 
     public function render()
     {
     
         //$users = User::all(); 
-        return view('livewire.product',[
-            'message' => $this->message,
-        ]);
+        return view('livewire.product');
+    }
+
+    public function add(){
+        $this->todos[] = $this->todo;
+        $this->todo = '';
     }
 }
