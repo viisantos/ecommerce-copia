@@ -38,5 +38,9 @@
 
         <button type="submit">Save</button>
     </form>
+
+@if (session('status'))
+     {{ session('status') }}
+@endif
     
 </div>

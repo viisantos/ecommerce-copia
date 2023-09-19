@@ -38,11 +38,10 @@ class Product extends Component
 
         $user = new User();
         $user->createUser($data);
-
-        //resolver isso 19-09-23!
-        //a mensagem não vai para o front end
         return redirect()->to('/products')
              ->with('status', 'User Created!');
+
+             
     }
 
     public function render()
