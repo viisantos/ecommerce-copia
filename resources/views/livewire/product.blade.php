@@ -40,7 +40,7 @@
     </form>
 
 @if (session('status'))
-     {{ session('status') }}
+     status: {{  session('status') }}
 @endif
     
 </div>

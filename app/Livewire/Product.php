@@ -46,7 +46,6 @@ class Product extends Component
 
     public function render()
     {
-
         //$users = User::all();
         return view('livewire.product');
     }
